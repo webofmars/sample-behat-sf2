@@ -1,0 +1,4 @@
+services:
+#    so_simple_graphs.example:
+#        class: SoSimpleGraphsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

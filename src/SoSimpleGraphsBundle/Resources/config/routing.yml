@@ -1,0 +1,7 @@
+so_simple_graphs:
+    resource: "@SoSimpleGraphsBundle/Resources/config/routing/graph.yml"
+    prefix:   /
+
+so_simple_graphs_homepage:
+    path:     /
+    defaults: { _controller: SoSimpleGraphsBundle:Default:index }
