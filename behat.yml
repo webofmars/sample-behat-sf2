@@ -1,16 +1,25 @@
+#selenium2:
+#  wd_host: http://127.0.0.1:4444/wd/hub
+#  capabilities:
+#    version: ''
 
 default:
-    suites:
+  suites:
+    default:
+      path: %paths.base%/features
+      mink_session: selenium2
+      contexts: 
+        - FeatureContext:
+            screen_shot_path: "./behat-failures-screenshots"
+        
+  extensions:
+    Behat\Symfony2Extension: ~ 
+    Behat\MinkExtension:
+      base_url: 'http://127.0.0.1:8000/app_dev.php'
+      selenium2: ~
+      sessions:
         default:
-            path: %paths.base%/features
-            contexts: [Behat\MinkExtension\Context\MinkContext]
-    extensions:
-        Behat\Symfony2Extension: ~ 
-        Behat\MinkExtension:
-            base_url: 'http://127.0.0.1:8000/app_dev.php'
-            sessions:
-                default:
-                    symfony2: ~
-                javascript:
-                    selenium2: ~
-            browser_name: firefox
+          selenium2: ~
+        javascript:
+          selenium2: ~
+      browser_name: "chrome"
