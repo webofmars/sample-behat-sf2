@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  behat:
+    image: webofmars/php5-symfony:latest
+    entrypoint: bash -c "echo 'waiting for services to be ready'; sleep 60 && /var/www/bin/behat -c /var/www/behat-docker.yml"
+    volumes:
+      - ${APP_DIR}:/var/www/
+    ports:
+      - 8000
+    links:
+      - php
+      - selenium
+    
+  php:
+    image: webofmars/php5-symfony:latest
+    volumes:
+      - ${APP_DIR}:/var/www/
+    ports:
+      - 8000
+
+  selenium:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
+      - 5900
+    links:
+      - php

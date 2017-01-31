@@ -5,8 +5,8 @@ parameters:
     database_driver:   "pdo_sqlite"
     database_host:     ~
     database_port:     ~
-    database_name:     "app/db.sqlite"
-    database_path:     "app/db.sqlite"
+    database_name:     "/var/www/app/db.sqlite"
+    database_path:     "/var/www/app/db.sqlite"
     database_user:     ~
     database_password: ~
     # You should uncomment this if you want use pdo_sqlite

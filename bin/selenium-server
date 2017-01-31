@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DRIVERSPATH=$(dirname $(realpath "$0"))
+
+if [ "$1" == "--no-gui" ]; then
+  echo '+ running selenium inside xvfb'
+  DISPLAY=:1 xvfb-run -s "-screen 0 1280x1024x16" java -jar selenium-server-standalone-2.46.0.jar -Dwebdriver.chrome.driver="${DRIVERSPATH}/chromedriver"
+else
+  echo '+ running selenium on you local display'
+  java -jar selenium-server-standalone-2.46.0.jar -Dwebdriver.chrome.driver="${DRIVERSPATH}/chromedriver"
+fi

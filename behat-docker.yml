@@ -1,0 +1,23 @@
+default:
+  suites:
+    default:
+      path: %paths.base%/features
+      mink_session: selenium2
+      contexts: 
+        - FeatureContext:
+            screen_shot_path: "./behat-failures-screenshots"
+  extensions:
+    Behat\Symfony2Extension: ~ 
+    Behat\MinkExtension:
+      base_url: 'http://php:8000/app_dev.php'
+      selenium2:
+            wd_host: 'selenium:4444/wd/hub'
+            capabilities: { "browser": "chrome", "version": "ANY", "deviceType": "ANY" }
+      sessions:
+        default:
+          goutte: ~
+        javascript:
+          selenium2:
+            wd_host: 'selenium:4444/wd/hub'
+            capabilities: { "browser": "chrome", "version": "ANY", "deviceType": "ANY" }
+      browser_name: "chrome"

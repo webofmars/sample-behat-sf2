@@ -3,9 +3,44 @@ behat-proof
 
 A working tutorial for setup behat with Symfony2 projects
 
+# requirements
+
+* install composer
+* install all needed dependencices with: 
+
+```shell
+composer install --dev
+```
+
+* initialize the database :
+
+```shell
+composer doctrine:database:create
+```
+
+## Using with behat localy
+
+* install java7-headless
 * install google chrome
 * install xvfb (if you want to run no gui tests)
-* install chrome webdriver - (see https://chromedriver.storage.googleapis.com/)
+* install chrome webdriver and unzip it in ./bin/ - (see https://chromedriver.storage.googleapis.com/)
+* run it:
+
+```shell
+./bin/selenium-server
+./bin/behat -c ./behat.yml
+```
+
+## using with docker containers
+
+* install docker + docker-compose
+* run it:
+
+```shell
+docker-compose -f docker-compose.yml
+```
+
+* end it when behat run is complete with Ctrl+C
 
 # Notes
 
