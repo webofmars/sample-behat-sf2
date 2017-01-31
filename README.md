@@ -27,7 +27,7 @@ composer doctrine:database:create
 * run it:
 
 ```shell
-./bin/selenium-server
+./bin/selenium-server (you can add --no-gui if you want to run it without seeing the browser)
 ./bin/behat -c ./behat.yml
 ```
 
